@@ -24,7 +24,7 @@ namespace KrisInfo
                 var responseBody = await response.Content.ReadAsStringAsync();
                 try
                 {
-                    // Gör om strängen till vår egen skapae datatyp - KrisInfoResponse
+                    // Gör om strängen till vår egen skapade datatyp - KrisInfoResponse
                     var messages = JsonConvert.DeserializeObject<List<KrisInfoResponse>>(responseBody);
                     if (messages != null)
                     {
