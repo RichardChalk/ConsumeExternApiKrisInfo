@@ -12,6 +12,7 @@ namespace KrisInfo
         {
             while (true)
             {
+                
                 Console.Clear();
                 Console.WriteLine("Krisinformation");
                 Console.WriteLine("***************\n");
@@ -28,7 +29,7 @@ namespace KrisInfo
                         KrisInfo.GetJsonDataAll().Wait();
                         break;
                     case 2:
-                        // Här behövs en id som parameter
+                        // TIPS: Låt användaren bestämma vilken id ska sökas
                         KrisInfo.GetJsonDataOne(18478).Wait();
                         
                         // Denna id finns inte... testa även med denna!
