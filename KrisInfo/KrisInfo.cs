@@ -12,12 +12,14 @@ namespace KrisInfo
     {
         public static async Task GetJsonDataAll()
         {
+            // Max siffra = 73! Vet inte varför!
+            var days = 30;
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.krisinformation.se");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync("/v3/news");
+            HttpResponseMessage response = await client.GetAsync($"/v3/news?days={days}");
             if (response.IsSuccessStatusCode)
             {
                 // Gör om responsen till en sträng
