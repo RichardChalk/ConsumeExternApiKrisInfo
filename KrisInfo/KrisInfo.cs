@@ -12,8 +12,7 @@ namespace KrisInfo
     {
         public static async Task GetJsonDataAll()
         {
-            // Max siffra = 73! Vet inte varför!
-            var days = 30;
+            var days = 100;
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.krisinformation.se");
             client.DefaultRequestHeaders.Accept.Clear();
@@ -68,7 +67,7 @@ namespace KrisInfo
                 Console.WriteLine("Tryck valfri knapp för att fortsätta");
                 Console.ReadLine();
             }
-            
+
             else if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
