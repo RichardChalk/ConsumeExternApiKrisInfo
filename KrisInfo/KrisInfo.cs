@@ -53,6 +53,7 @@ namespace KrisInfo
 
         public static async Task GetJsonDataOne(int id)
         {
+            // Hmmm DRY? Det borde finnas ett bättre sätt!
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.krisinformation.se");
             client.DefaultRequestHeaders.Accept.Clear();
@@ -76,6 +77,7 @@ namespace KrisInfo
                     var message = JsonConvert.DeserializeObject<KrisInfoResponse>(responseBody);
                     if (message != null)
                     {
+                        // Hmmm DRY? Det borde finnas ett bättre sätt!
                         Console.WriteLine("En Varning");
                         Console.WriteLine("**********");
                         Console.WriteLine($"Id: {message.Identifier}");
